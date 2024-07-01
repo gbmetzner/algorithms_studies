@@ -1,4 +1,4 @@
-package com.gbm.search;
+package com.gbm.search.util;
 
 import java.util.HashSet;
 import java.util.Set;

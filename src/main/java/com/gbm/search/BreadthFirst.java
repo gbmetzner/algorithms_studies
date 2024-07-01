@@ -1,6 +1,9 @@
 package com.gbm.search;
 
 
+import com.gbm.search.util.Node;
+import com.gbm.search.util.Tree;
+
 import java.util.ArrayDeque;
 import java.util.HashSet;
 import java.util.Optional;

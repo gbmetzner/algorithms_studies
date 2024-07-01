@@ -1,4 +1,4 @@
-package com.gbm.search;
+package com.gbm.search.util;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,5 +1,7 @@
 package com.gbm.search;
 
+import com.gbm.search.util.Node;
+import com.gbm.search.util.Tree;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
