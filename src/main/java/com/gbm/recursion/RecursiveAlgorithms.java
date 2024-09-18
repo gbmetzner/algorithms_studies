@@ -15,7 +15,7 @@ public class RecursiveAlgorithms {
         return n.multiply(factorial(n.subtract(BigInteger.ONE)));
     }
 
-    // tried to implement this idea: https://youtu.be/wM1lyTfyuRo?t=2416
+    // tried to implement his idea (Venkat Subramaniam): https://youtu.be/wM1lyTfyuRo?t=2416
     public BigInteger factorialTailRec(BigInteger n) {
         return tailRecFactorial(n, n.subtract(BigInteger.ONE)).process();
     }
@@ -53,6 +53,7 @@ public class RecursiveAlgorithms {
         return integerList.get(0) > maybeMax ? integerList.get(0) : maybeMax;
     }
 
+    // tried to implement his idea (Venkat Subramaniam): https://youtu.be/wM1lyTfyuRo?t=2416
     @FunctionalInterface
     interface TailRec<T> {
 

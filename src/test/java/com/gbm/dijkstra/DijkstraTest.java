@@ -1,13 +1,11 @@
 package com.gbm.dijkstra;
 
-import com.gbm.search.dijkstra.*;
-import org.junit.jupiter.api.Assertions;
+import com.gbm.search.dijkstra.Dijkstra;
+import com.gbm.search.dijkstra.Node;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.LinkedHashSet;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class DijkstraTest {
@@ -45,10 +43,7 @@ public class DijkstraTest {
         set.add(new Node<>("Drums", 25));
         set.add(new Node<>("Piano", 35));
 
-        System.out.println(set);
-        System.out.println(shortestPath);
-        assertTrue(set.size() == shortestPath.size() && set.containsAll(shortestPath) && shortestPath.containsAll(set) );
+        assertTrue(set.size() == shortestPath.size() && set.containsAll(shortestPath) && shortestPath.containsAll(set));
     }
-
 
 }

@@ -34,12 +34,12 @@ public class Node<T> {
         return neighbors;
     }
 
-    public void setShortestPath(Set<Node<T>> shortestPath) {
-        this.shortestPath = shortestPath;
-    }
-
     public Set<Node<T>> getShortestPath() {
         return shortestPath;
+    }
+
+    public void setShortestPath(Set<Node<T>> shortestPath) {
+        this.shortestPath = shortestPath;
     }
 
     @Override

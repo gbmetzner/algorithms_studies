@@ -1,6 +1,8 @@
 package com.gbm.search.dijkstra;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -41,7 +43,7 @@ public class Dijkstra {
         var lowestDistanceNode = new AtomicReference<Node<T>>();
         var lowestWeight = new AtomicInteger(Integer.MAX_VALUE);
 
-        notVisited.forEach(nv ->  {
+        notVisited.forEach(nv -> {
             var nodeWeight = nv.getWeight();
             if (nodeWeight < lowestWeight.get()) {
                 lowestWeight.set(nodeWeight);
