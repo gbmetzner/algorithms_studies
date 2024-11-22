@@ -1,83 +1,76 @@
 package com.gbm.search;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import com.gbm.search.util.Node;
 import com.gbm.search.util.Tree;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 public class BreadthFirstTest {
 
+	@Test
+	public void testBreadthFirstFindValue() {
 
-    @Test
-    public void testBreadthFirstFindValue() {
+		var tree = new Tree<>(0);
+		tree.addChildren(new Tree<>(1));
+		var tree2 = new Tree<>(2);
+		tree2.addChildren(new Tree<>(4));
+		tree.addChildren(tree2);
+		tree.addChildren(new Tree<>(3));
 
-        var tree = new Tree<>(0);
-        tree.addChildren(new Tree<>(1));
-        var tree2 = new Tree<>(2);
-        tree2.addChildren(new Tree<>(4));
-        tree.addChildren(tree2);
-        tree.addChildren(new Tree<>(3));
+		var breadthFirst = new BreadthFirst();
+		var result = breadthFirst.search(4, tree);
 
-        var breadthFirst = new BreadthFirst();
-        var result = breadthFirst.search(4, tree);
+		assertTrue(result.isPresent());
+		assertEquals(4, result.get());
+	}
 
-        assertTrue(result.isPresent());
-        assertEquals(4, result.get());
+	@Test
+	public void testBreadthFirstDoesntFindValue() {
 
-    }
+		var tree = new Tree<>(0);
+		tree.addChildren(new Tree<>(1));
+		var tree2 = new Tree<>(2);
+		tree2.addChildren(new Tree<>(4));
+		tree.addChildren(tree2);
+		tree.addChildren(new Tree<>(3));
 
-    @Test
-    public void testBreadthFirstDoesntFindValue() {
+		var breadthFirst = new BreadthFirst();
+		var result = breadthFirst.search(5, tree);
 
-        var tree = new Tree<>(0);
-        tree.addChildren(new Tree<>(1));
-        var tree2 = new Tree<>(2);
-        tree2.addChildren(new Tree<>(4));
-        tree.addChildren(tree2);
-        tree.addChildren(new Tree<>(3));
+		assertTrue(result.isEmpty());
+	}
 
-        var breadthFirst = new BreadthFirst();
-        var result = breadthFirst.search(5, tree);
+	@Test
+	public void testBreadthFirstFindValueNode() {
 
-        assertTrue(result.isEmpty());
+		var node = new Node<>(0);
+		node.addNeighbor(new Node<>(1));
+		var node2 = new Node<>(2);
+		node2.addNeighbor(new Node<>(4));
+		node.addNeighbor(node2);
+		node.addNeighbor(new Node<>(3));
 
-    }
+		var breadthFirst = new BreadthFirst();
+		var result = breadthFirst.search(4, node);
 
-    @Test
-    public void testBreadthFirstFindValueNode() {
+		assertTrue(result.isPresent());
+		assertEquals(4, result.get());
+	}
 
-        var node = new Node<>(0);
-        node.addNeighbor(new Node<>(1));
-        var node2 = new Node<>(2);
-        node2.addNeighbor(new Node<>(4));
-        node.addNeighbor(node2);
-        node.addNeighbor(new Node<>(3));
+	@Test
+	public void testBreadthFirstDoesntFindValueNode() {
 
-        var breadthFirst = new BreadthFirst();
-        var result = breadthFirst.search(4, node);
+		var node = new Node<>(0);
+		node.addNeighbor(new Node<>(1));
+		var node2 = new Node<>(2);
+		node2.addNeighbor(new Node<>(4));
+		node.addNeighbor(node2);
+		node.addNeighbor(new Node<>(3));
 
-        assertTrue(result.isPresent());
-        assertEquals(4, result.get());
-
-    }
-
-    @Test
-    public void testBreadthFirstDoesntFindValueNode() {
-
-        var node = new Node<>(0);
-        node.addNeighbor(new Node<>(1));
-        var node2 = new Node<>(2);
-        node2.addNeighbor(new Node<>(4));
-        node.addNeighbor(node2);
-        node.addNeighbor(new Node<>(3));
-
-        var breadthFirst = new BreadthFirst();
-        var result = breadthFirst.search(5, node);
-        assertTrue(result.isEmpty());
-
-    }
-
-
+		var breadthFirst = new BreadthFirst();
+		var result = breadthFirst.search(5, node);
+		assertTrue(result.isEmpty());
+	}
 }
