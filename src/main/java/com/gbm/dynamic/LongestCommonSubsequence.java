@@ -45,7 +45,10 @@ public class LongestCommonSubsequence {
             results.add(new Result(s, wordGrid[s.length() - 1][s.length() - 1]));
         }
 
-        return results.stream().max(comparingInt(r -> r.sequenceLength)).orElse(null);
+        return results.stream()
+                .max(comparingInt(r -> r.sequenceLength))
+                .filter(r -> r.sequenceLength > 1)
+                .orElse(null);
     }
 
 

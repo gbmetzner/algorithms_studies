@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class LongestCommonSubsequenceTest {
 
@@ -28,9 +29,8 @@ public class LongestCommonSubsequenceTest {
     @Test
     public void testLongestCommonSubsequenceNull() {
         var dictionary = Set.of("fish", "gosh","fort", "kesh","bash");
-        var result = new LongestCommonSubsequence(dictionary).find("bush");
-        assertEquals("bash", result.word);
-        assertEquals(3, result.sequenceLength);
+        var result = new LongestCommonSubsequence(dictionary).find("clue");
+        assertNull(result);
     }
 
 }
