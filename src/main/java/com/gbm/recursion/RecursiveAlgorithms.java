@@ -31,26 +31,34 @@ public class RecursiveAlgorithms {
     }
 
     public Integer sum(List<Integer> integerList) {
-        if (integerList == null || integerList.isEmpty()) {
+        return sumHelper(integerList, 0);
+    }
+
+    private Integer sumHelper(List<Integer> integerList, int currentIndex) {
+        if (integerList == null || currentIndex == integerList.size()) {
             return 0;
         }
-        return integerList.removeFirst() + sum(integerList);
+        return integerList.get(currentIndex) + sumHelper(integerList, currentIndex + 1);
     }
 
     public Integer count(List<Integer> integerList) {
-        if (integerList == null || integerList.isEmpty()) {
+        return countHelper(integerList, 0);
+    }
+    private Integer countHelper(List<Integer> integerList, int currentIndex) {
+        if (integerList == null || currentIndex == integerList.size()) {
             return 0;
         }
-        integerList.removeFirst();
-        return 1 + count(integerList);
+        return 1 + countHelper(integerList, currentIndex + 1);
     }
 
     public Integer max(List<Integer> integerList) {
-        if (integerList.size() == 2) {
-            return integerList.get(0) > integerList.get(1) ? integerList.get(0) : integerList.get(1);
+        return maxHelper(integerList, 0, integerList.get(0));
+    }
+    private Integer maxHelper(List<Integer> integerList, int currentIndex, int currentMax) {
+        if (currentIndex == integerList.size()) {
+            return currentMax;
         }
-        var maybeMax = max(integerList.subList(1, integerList.size()));
-        return integerList.get(0) > maybeMax ? integerList.get(0) : maybeMax;
+        return maxHelper(integerList, currentIndex + 1, Math.max(currentMax, integerList.get(currentIndex)));
     }
 
     // tried to implement his idea (Venkat Subramaniam): https://youtu.be/wM1lyTfyuRo?t=2416
